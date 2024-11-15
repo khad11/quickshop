@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>9-dars</title>
     <link rel="stylesheet" href="./src/output.css" />
+    <!-- toaster -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
   </head>
   <body>
     <h1>home page</h1>
@@ -37,10 +43,10 @@
                 <a href="./about.html">About</a>
               </li>
               <li>
-                <a href="./cart.html">Carts</a>
+                <a href="./contact.html">Contact</a>
               </li>
               <li>
-                <a href="./product.html">My products</a>
+                <a href="./cart.html">cart</a>
               </li>
             </ul>
           </div>
@@ -56,10 +62,10 @@
               <a href="./about.html">About</a>
             </li>
             <li>
-              <a href="./cart.html">Carts</a>
+              <a href="./contact.html">Contact</a>
             </li>
             <li>
-              <a href="./product.html">My products</a>
+              <a href="./cart.html">cart</a>
             </li>
           </ul>
         </div>
@@ -108,7 +114,7 @@
           class="container grid grid-cols-1 md:grid-cols-3 gap-5"
         ></div>
         <template id="home-cart-template">
-          <a href="./product.html" class="card bg-base-200 w-full shadow-2xl">
+          <a href="" class="card bg-base-200 w-full shadow-2xl">
             <figure>
               <img
                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -165,6 +171,11 @@
     >
       <span class="loading loading-dots loading-lg"></span>
     </div>
+    <!-- js -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script type="module" src="./js/app.js"></script>
   </body>
 </html>

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./src/output.css" />
   </head>
   <body>
-    <h1>product page</h1>
     <header class="bg-base-200">
       <div class="container navbar">
         <!-- navbar start -->
@@ -37,10 +36,7 @@
                 <a href="./about.html">About</a>
               </li>
               <li>
-                <a href="./cart.html">Carts</a>
-              </li>
-              <li>
-                <a href="./product.html">My products</a>
+                <a href="./contact.html">Contact</a>
               </li>
             </ul>
           </div>
@@ -56,10 +52,7 @@
               <a href="./about.html">About</a>
             </li>
             <li>
-              <a href="./cart.html">Carts</a>
-            </li>
-            <li>
-              <a href="./product.html">My products</a>
+              <a href="./contact.html">Contact</a>
             </li>
           </ul>
         </div>
@@ -101,6 +94,55 @@
         </div>
       </div>
     </header>
+    <main>
+      <section>
+        <div class="container my-10">
+          <h1
+            id="title"
+            class="text-4xl text-center text-red-600 font-bold my-2 bg-base-300 p-5 rounded-md"
+          ></h1>
+          <div
+            id="carousel"
+            class="carousel rounded-box w-full h-96 flex justify-center container bg-secondary p-5"
+          >
+            <img src="" alt="" id="thumbnail" class="" />
+          </div>
+          <div class="flex gap-2 items-center my-5">
+            <p>Description:</p>
+            <q id="description" class="bg-base-300 p-3 rounded-md"></q>
+          </div>
+          <div class="flex gap-2 items-center my-5">
+            <p>Category:</p>
+            <h2 id="category" class="text-xl uppercase italic font-medium"></h2>
+          </div>
+          <div class="flex items-center my-5">
+            <p class="pr-3">Price:</p>
+            <h2 id="price" class="text-xl font-medium"></h2>
+            <p class="text-xl font-medium">$</p>
+          </div>
+          <div class="flex items-center my-5">
+            <p class="pr-3">Discount:</p>
+            <h2
+              id="discountPercentage"
+              class="text-xl line-through font-semibold"
+            ></h2>
+            <p class="font-semibold text-xl">%</p>
+          </div>
+          <template id="carousel-item">
+            <div class="carousel-item w-1/2">
+              <img src="" class="w-full" />
+            </div>
+          </template>
+        </div>
+      </section>
+    </main>
+    <!-- LOADER -->
+    <div
+      id="loader"
+      class="fixed top-0 left-0 w-full bottom-0 bg-black bg-opacity-30 grid place-content-center hidden"
+    >
+      <span class="loading loading-dots loading-lg"></span>
+    </div>
     <script type="module" src="./js/product.js"></script>
   </body>
 </html>
