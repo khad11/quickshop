@@ -3,6 +3,7 @@ import { addProduct } from "./productslocal.js";
 const homeCartTemplate = document.getElementById("home-cart-template");
 const productsContainer = document.getElementById("products-container");
 const trTemplate = document.getElementById("tr-template");
+const tBody = document.querySelector("tbody");
 
 let allProducts;
 
@@ -45,7 +46,11 @@ export const updateTbodyUI = (products) => {
     const { id, thumbnail, amount, price, title, brand } = product;
     const clone = trTemplate.content.cloneNode(true);
     const image = clone.querySelector("img");
-    console.log(title);
-    img.src = thumbnail;
+    console.log("funksiya ishladi ");
+
+    image.src = thumbnail;
+
+    //append chiild
+    tBody.appendChild(clone);
   });
 };

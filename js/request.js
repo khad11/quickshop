@@ -15,5 +15,4 @@ const request = async (url) => {
     loader(false);
   }
 };
-console.log(request);
 export default request;
