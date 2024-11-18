@@ -1,10 +1,11 @@
 import { toast } from "./toast.js";
 // import("./updateUi.js");
-
 import("./mode.js");
-
-let localProducts = JSON.parse(localStorage.getItem("products"));
 import { updateTbodyUI } from "./updateUi.js";
+
+let localProducts = JSON.parse(localStorage.getItem("product"));
+
+// import { updateTbodyUI } from "./updateUi.js";
 console.log(localProducts);
 
 if (!localProducts) {
@@ -12,7 +13,3 @@ if (!localProducts) {
 } else {
   updateTbodyUI(localProducts);
 }
-
-localStorage.setItem("products", JSON.stringify(localProducts));
-
-// console.log(localStorage.getItem("products"));

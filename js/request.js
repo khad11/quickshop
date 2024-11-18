@@ -5,7 +5,7 @@ const request = async (url) => {
   try {
     const req = await fetch(url);
     if (!req.ok) {
-      throw new Error("Something went wrong:(");
+      throw new Error("Something went wrong :(");
     }
     const data = await req.json();
     return data;
@@ -15,4 +15,5 @@ const request = async (url) => {
     loader(false);
   }
 };
+
 export default request;
