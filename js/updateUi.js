@@ -1,4 +1,6 @@
 import { addProduct } from "./productslocal.js";
+import { deleteElement } from "./productslocal.js";
+import { localProducts } from "./productslocal.js";
 
 const homeCartTemplate = document.getElementById("home-cart-template");
 const productsContainer = document.getElementById("products-container");
@@ -79,24 +81,69 @@ export const updateProductUI = (product) => {
     thumbnailEl.src = thumbnail;
   }
 };
-
+import { formatNumber } from "./formatNumber.js";
 export const updateTbodyUI = (products) => {
   tBody.innerHTML = "";
   products.forEach((product) => {
-    console.log(product);
     const { id, thumbnail, amount, price, title, brand } = product;
     const clone = trTemplate.content.cloneNode(true);
     const image = clone.querySelector("img");
     const brendEl = clone.querySelector(".brend");
     const titlEl = clone.querySelector(".title");
     const priceEl = clone.querySelector(".price");
+    const amountEl = clone.querySelector(".amount");
+    const deleteBtn = clone.querySelector(".delete-btn");
+    const incrementItemEl = clone.querySelector(".incrementItem");
+    const decrementItemEl = clone.querySelector(".decrementItem");
 
-    // console.log("funksiya ishladi ");
-    // console.log(1);
     image.src = thumbnail;
-    brendEl.textContent = brand;
+    brendEl.textContent = `Brand : ${brand}`;
     titlEl.textContent = title;
-    priceEl.textContent = price;
+    priceEl.textContent = formatNumber(price);
+    amountEl.textContent = amount;
+    deleteBtn.setAttribute("data-id", id);
+    incrementItemEl.setAttribute("data-id", id);
+    decrementItemEl.setAttribute("data-id", id);
+    deleteBtn.addEventListener("click", (e) => {
+      deleteElement(e);
+    });
+
+    let currentAmount = product.amount;
+
+    incrementItemEl.addEventListener("click", (e) => {
+      currentAmount++;
+      amountEl.textContent = currentAmount;
+      const id = e.target.dataset.id;
+      let updateAmountItem = localProducts.map((product) => {
+        if (product.id == id) {
+          return {
+            ...product,
+            amount: currentAmount,
+          };
+        } else {
+          return product;
+        }
+      });
+      localStorage.setItem("product", JSON.stringify(updateAmountItem));
+    });
+
+    //decrement
+    decrementItemEl.addEventListener("click", (e) => {
+      currentAmount--;
+      amountEl.textContent = currentAmount;
+      const id = e.target.dataset.id;
+      let updateAmountItem = localProducts.map((product) => {
+        if (product.id == id) {
+          return {
+            ...product,
+            amount: currentAmount,
+          };
+        } else {
+          return product;
+        }
+      });
+      localStorage.setItem("product", JSON.stringify(updateAmountItem));
+    });
 
     //append chiild
     tBody.appendChild(clone);
