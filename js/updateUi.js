@@ -1,5 +1,5 @@
 import { addProduct } from "./productslocal.js";
-import { deleteElement } from "./productslocal.js";
+import { deleteElement, updateAmount } from "./productslocal.js";
 import { localProducts } from "./productslocal.js";
 
 const homeCartTemplate = document.getElementById("home-cart-template");
@@ -19,7 +19,6 @@ const stopNavigation = (e) => {
 };
 
 export const updateHomeUI = ({ products }) => {
-  // console.log(products);
   allProducts = products;
   allProducts.forEach((product) => {
     const { thumbnail, title, brand, price, rating, id } = product;
@@ -82,6 +81,7 @@ export const updateProductUI = (product) => {
   }
 };
 import { formatNumber } from "./formatNumber.js";
+import { toast } from "./toast.js";
 export const updateTbodyUI = (products) => {
   tBody.innerHTML = "";
   products.forEach((product) => {
@@ -100,10 +100,11 @@ export const updateTbodyUI = (products) => {
     brendEl.textContent = `Brand : ${brand}`;
     titlEl.textContent = title;
     priceEl.textContent = formatNumber(price);
-    amountEl.textContent = amount;
+    amountEl.value = amount;
     deleteBtn.setAttribute("data-id", id);
     incrementItemEl.setAttribute("data-id", id);
     decrementItemEl.setAttribute("data-id", id);
+    amountEl.setAttribute("data-id", id);
     deleteBtn.addEventListener("click", (e) => {
       deleteElement(e);
     });
@@ -112,37 +113,25 @@ export const updateTbodyUI = (products) => {
 
     incrementItemEl.addEventListener("click", (e) => {
       currentAmount++;
-      amountEl.textContent = currentAmount;
-      const id = e.target.dataset.id;
-      let updateAmountItem = localProducts.map((product) => {
-        if (product.id == id) {
-          return {
-            ...product,
-            amount: currentAmount,
-          };
-        } else {
-          return product;
-        }
-      });
-      localStorage.setItem("product", JSON.stringify(updateAmountItem));
+      amountEl.value = currentAmount;
+      updateAmount(e, currentAmount);
+      if (currentAmount > 12) {
+        toast("warning", "mahsulot soni cheklangan");
+        return;
+      }
     });
 
     //decrement
     decrementItemEl.addEventListener("click", (e) => {
       currentAmount--;
-      amountEl.textContent = currentAmount;
-      const id = e.target.dataset.id;
-      let updateAmountItem = localProducts.map((product) => {
-        if (product.id == id) {
-          return {
-            ...product,
-            amount: currentAmount,
-          };
-        } else {
-          return product;
-        }
-      });
-      localStorage.setItem("product", JSON.stringify(updateAmountItem));
+      amountEl.value = currentAmount;
+      updateAmount(e, currentAmount);
+    });
+
+    amountEl.addEventListener("input", (e) => {
+      currentAmount = amountEl.value;
+      amountEl.value = currentAmount;
+      updateAmount(e, currentAmount);
     });
 
     //append chiild

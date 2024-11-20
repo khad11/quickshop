@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/output.css" />
     <title>cart</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+      integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <header class="bg-base-200">
@@ -33,9 +45,6 @@
                 <a href="./index.html">Home</a>
               </li>
               <li>
-                <a href="./about.html">About</a>
-              </li>
-              <li>
                 <a href="./contact.html">Contact</a>
               </li>
             </ul>
@@ -48,9 +57,7 @@
             <li>
               <a href="./index.html">Home</a>
             </li>
-            <li>
-              <a href="./about.html">About</a>
-            </li>
+
             <li>
               <a href="./contact.html">Contact</a>
             </li>
@@ -59,6 +66,17 @@
 
         <!-- navbar end -->
         <div class="navbar-end">
+          <!-- INDICATOR -->
+          <div class="indicator pr-3">
+            <span
+              class="indicator-item badge badge-secondary text-white"
+              id="bascet"
+              >0</span
+            >
+            <button class="btn">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+          </div>
           <!-- dark mode light mode  -->
           <label class="swap swap-rotate">
             <!-- this hidden checkbox controls the state -->
@@ -91,15 +109,22 @@
               />
             </svg>
           </label>
+          <!-- enter name  -->
+          <div>
+            <button
+              id="ad-name-id"
+              class="btn btn-primary btn-sm text-white mx-5"
+            >
+              Add your name
+            </button>
+          </div>
         </div>
       </div>
     </header>
     <main>
       <section>
-        <div class="grid justify-items-center">
-          <a
-            href="https://t.me/wdaris"
-            class="link link-neutral flex justify-center"
+        <div class="grid place-items-center h-screen">
+          <a href="https://t.me/wdaris" class="link link-neutral text-2xl"
             >More info</a
           >
         </div>

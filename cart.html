@@ -10,6 +10,13 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+      integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <header class="bg-base-200 mb-20">
@@ -38,9 +45,7 @@
               <li>
                 <a href="./index.html">Home</a>
               </li>
-              <li>
-                <a href="./about.html">About</a>
-              </li>
+
               <li>
                 <a href="./contact.html">Contact</a>
               </li>
@@ -54,9 +59,6 @@
             <li>
               <a href="./index.html">Home</a>
             </li>
-            <li class="active">
-              <a href="./about.html">About</a>
-            </li>
             <li>
               <a href="./contact.html">Contact</a>
             </li>
@@ -65,6 +67,17 @@
 
         <!-- navbar end -->
         <div class="navbar-end">
+          <!-- INDICATOR -->
+          <div class="indicator pr-3">
+            <span
+              class="indicator-item badge badge-secondary text-white"
+              id="bascet"
+              >0</span
+            >
+            <button class="btn">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+          </div>
           <!-- dark mode light mode  -->
           <label class="swap swap-rotate">
             <!-- this hidden checkbox controls the state -->
@@ -97,6 +110,15 @@
               />
             </svg>
           </label>
+          <!-- enter name  -->
+          <div>
+            <button
+              id="ad-name-id"
+              class="btn btn-primary btn-sm text-white mx-5"
+            >
+              Add your name
+            </button>
+          </div>
         </div>
       </div>
     </header>
@@ -104,6 +126,9 @@
       <section>
         <div class="container">
           <div class="overflow-x-auto">
+            <h1 class="flex justify-end text-2xl font-bold priceTotal">
+              TOTAL:
+            </h1>
             <table class="table">
               <!-- head -->
               <thead>
@@ -122,7 +147,7 @@
                       <div class="flex items-center gap-3">
                         <div class="avatar">
                           <a
-                            href="./index.html"
+                            href="./product.html"
                             class="mask mask-squircle h-12 w-12"
                           >
                             <img
@@ -131,7 +156,7 @@
                             />
                           </a>
                         </div>
-                        <a href="./index.html">
+                        <a href="./product.html">
                           <div class="font-bold title text-sm"></div>
                           <div
                             class="text-sm opacity-50 brend text-orange-600"
@@ -152,7 +177,11 @@
                         >
                           &plus;
                         </button>
-                        <p class="text-2xl amount font-semibold"></p>
+                        <input
+                          type="number"
+                          placeholder=""
+                          class="input input-bordered input-success w-40 amount"
+                        />
                         <button
                           class="btn text-2xl font-bold btn-sm decrementItem"
                         >
